@@ -21,6 +21,13 @@ type Emitter interface {
 	Emit(interface{}) error
 }
 
+// A Store is a generic interface responsible for managing
+// The fetching and creation of traversers
+type Store interface {
+	FetchTraverser(uuid string) (Traverser, error)
+	CreateTraverser(uuid string) (Traverser, error)
+}
+
 // A Traverser is an individual that is traversing the
 // StateMachine.  This interface that is responsible
 // for managing the state of that individual
